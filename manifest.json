@@ -1,0 +1,22 @@
+{
+  "name": "task1-youtrackapp",
+  "title": "task1",
+  "description": "App for internship application",
+  "$schema": "https://json.schemastore.org/youtrack-app.json",
+  "vendor": {
+    "name": "Test Developer",
+    "url": "https://example.com"
+  },
+  "icon": "icon.svg",
+  "widgets": [
+
+    {
+      "key": "widget1",
+      "name": "Widget1",
+      "indexPath": "widget1/index.html",
+      "extensionPoint": "MAIN_MENU_ITEM",
+      "iconPath": "widget1/widget-icon.svg",
+      "description": ""
+    }
+  ]
+}

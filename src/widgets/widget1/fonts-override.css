@@ -1,0 +1,16 @@
+/* Minimal font override to fix CORS issues while preserving Ring UI styling */
+
+/* Only override the problematic Inter font that causes CORS errors */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  /* Fallback to system fonts when Inter can't load */
+  src: local('system-ui'), local('-apple-system'), local('BlinkMacSystemFont'), local('Segoe UI'), local('Roboto');
+}
+
+/* Only set font-family on body to avoid breaking Ring UI component styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
