@@ -2,10 +2,12 @@ import React, {memo, useCallback, useEffect, useState} from 'react';
 import Button from '@jetbrains/ring-ui-built/components/button/button';
 import LoaderInline from '@jetbrains/ring-ui-built/components/loader-inline/loader-inline';
 import Panel from '@jetbrains/ring-ui-built/components/panel/panel';
+import Toggle from '@jetbrains/ring-ui-built/components/toggle/toggle';
 import {Project} from '../../types/project.types';
 import type {HostAPI} from '../../../@types/globals';
 
 const ICON_MAX_LENGTH = 3;
+const MAX_PROJECT_NAME_LENGTH = 60;
 
 const AppComponent: React.FunctionComponent = () => {
   const [host, setHost] = useState<HostAPI | null>(null);
@@ -35,6 +37,8 @@ const AppComponent: React.FunctionComponent = () => {
       mounted = false;
     };
   }, []);
+
+
 
   const logDebugInfo = useCallback((result: unknown) => {
     // eslint-disable-next-line no-console
@@ -93,6 +97,8 @@ const AppComponent: React.FunctionComponent = () => {
     }
   }, [host, logDebugInfo]);
 
+
+
   // 3. Kick off fetch once host is ready
   useEffect(() => {
     if (host) {
@@ -100,50 +106,59 @@ const AppComponent: React.FunctionComponent = () => {
     }
   }, [host, fetchProjects]);
 
+
+
   return (
     <div className="widget">
-
-      <div className="projects-panel">
-        <h3>All Projects</h3>
-
-        {error && (
-          <div className="error-message">
-            {error}
-            <Button onClick={fetchProjects}>Retry</Button>
-          </div>
-        )}
-
-        {loading ? (
-          <LoaderInline/>
-        ) : (
-          <div className="projects-list">
-            {projects.length === 0 ? (
-              <div className="no-projects">No projects found</div>
-            ) : (
-              <div className="projects-grid">
-                {projects.map(project => (
-                  <Panel key={project.id} className="project-card">
-                    <div className="project-card-content">
-                      <div className="project-header">
-                        <div className="project-icon">
-                          {project.shortName.substring(0, Math.min(ICON_MAX_LENGTH, project.shortName.length))}
-                        </div>
-                        <h3 className="project-title">{project.name}</h3>
-                      </div>
-                    </div>
-                  </Panel>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-
-        <div className="actions">
-          <Button onClick={fetchProjects} disabled={!host || loading}>
-            Refresh Projects
-          </Button>
+      {error && (
+        <div className="error-message">
+          {error}
+          <Button onClick={fetchProjects}>Retry</Button>
         </div>
-      </div>
+      )}
+
+      {loading ? (
+        <LoaderInline/>
+      ) : (
+        <div className="projects-list">
+          {projects.length === 0 ? (
+            <div className="no-projects">No projects found</div>
+          ) : (
+            <div className="projects-grid">
+              {projects.map(project => (
+                <Panel key={project.id} className="project-card">
+                  <div className="project-card-content">
+                    <div className="project-header">
+                      <div className="project-icon">
+                        {project.shortName.substring(0, Math.min(ICON_MAX_LENGTH, project.shortName.length))}
+                      </div>
+
+                      <h3 className="project-title">{project.name.substring(0, MAX_PROJECT_NAME_LENGTH) + (project.name.length > MAX_PROJECT_NAME_LENGTH ? '...' : '')}</h3>
+                    </div>
+
+                    <div className="sync-control">
+                      <span className="sync-label">
+                        Concurrent Edit Prevention
+                      </span>
+                      <Toggle
+                        checked={false}
+                        disabled={false}
+                        onChange={() => {
+                          // No-op - toggle doesn't do anything
+                        }}
+                      />
+                    </div>
+                  </div>
+                </Panel>
+                
+              ))}
+            </div>
+          )}
+
+        </div>
+      )}
+
+      
     </div>
   );
 };
