@@ -3,7 +3,11 @@
     "type": "object",
     "title": "",
     "description": "",
-    "properties": {
+   "properties": {
+        "ConcurrentEdit": {
+            "type": "boolean",
+            "default": false
+        }
     },
     "required":[
     ]

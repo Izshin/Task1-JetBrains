@@ -1,0 +1,13 @@
+{
+  "entityTypeExtensions": [
+    {
+      "entityType": "AppGlobalStorage",
+      "properties": {
+        "projectFlags": {
+          "type": "string",
+          "description": "JSON string containing project flags mapping"
+        }
+      }
+    }
+  ]
+}

@@ -8,8 +8,8 @@
     "url": "https://example.com"
   },
   "icon": "icon.svg",
-  "widgets": [
 
+  "widgets": [
     {
       "key": "widget1",
       "name": "Widget1",
@@ -17,6 +17,14 @@
       "extensionPoint": "MAIN_MENU_ITEM",
       "iconPath": "widget1/widget-icon.svg",
       "description": ""
+    }
+  ],
+
+  "endpoints": [
+    {
+      "key": "backend",
+      "scriptPath": "backend.js",
+      "description": "Backend API for project flags"
     }
   ]
 }
