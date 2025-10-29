@@ -1,0 +1,65 @@
+/* Project Card Base Styles */
+.projectCard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: calc(var(--ring-unit) * 2);
+  background: #ffffff;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.projectCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--ring-unit) * 2);
+}
+
+.projectHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: calc(var(--ring-unit) * 1.5);
+}
+
+.projectIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  background: #000000;
+  border: 2px solid #666666;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.projectTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+  line-height: 1.4;
+  flex-grow: 1;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.syncControl {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: calc(var(--ring-unit));
+}
+
+.syncLabel {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+}

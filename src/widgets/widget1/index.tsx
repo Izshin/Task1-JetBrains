@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client';
 import '@jetbrains/ring-ui-built/components/style.css';
 import {ControlsHeightContext, ControlsHeight} from '@jetbrains/ring-ui-built/components/global/controls-height';
 import './fonts-override.css';
+import './styles/main.css';
 
-import {App} from './app';
+import {App} from './app-refactored';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
