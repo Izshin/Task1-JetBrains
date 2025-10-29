@@ -14,4 +14,4 @@ export { ErrorMessage } from './components/ErrorMessage';
 export { UI_CONSTANTS, API_CONFIG, PROJECT_COLORS } from './utils/constants';
 
 // Main App
-export { App } from './app-refactored';
+export { App } from './App';
