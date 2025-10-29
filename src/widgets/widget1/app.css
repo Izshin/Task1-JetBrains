@@ -1,12 +1,28 @@
+/* Ensure proper box-sizing for all elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Override Ring UI CSS variables globally for toggle colors */
+:root {
+  --ring-main-color: #ec4899;
+  --ring-main-hover-color: #ec4899;
+  --ring-border-hover-color: #ec4899;
+}
+
 .widget {
   display: flex;
   flex-direction: column;
   gap: calc(var(--ring-unit) * 2);
   padding: calc(var(--ring-unit) * 2);
   width: 100%;
-  min-height: 100vh;
+  max-width: 90%;
   background: #ffffff;
   align-items: flex-start;
+  overflow-x: visible;
+  box-sizing: border-box;
 }
 
 .widget-header {
@@ -67,8 +83,12 @@
 
 .project-description {
   font-size: 12px;
-  color: var(--ring-secondary-color);
+  color: var(--project-color-dark, var(--ring-secondary-color));
   font-style: italic;
+  background-color: var(--project-color-light, transparent);
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--project-color-light, transparent);
 }
 
 .project-id {
@@ -133,6 +153,10 @@
   flex-direction: column;
   gap: calc(var(--ring-unit));
   margin-bottom: calc(var(--ring-unit) * 2);
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+  box-sizing: border-box;
 }
 
 .project-card {
@@ -143,6 +167,7 @@
   cursor: default;
   position: relative;
   width: 100%;
+  max-width: 100%;
   height: auto;
   display: flex;
   flex-direction: row;
@@ -150,10 +175,35 @@
   padding: calc(var(--ring-unit) * 2);
   overflow: visible;
   box-shadow: none;
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .project-card:hover {
-  background: transparent;
+  background: transparent !important;
+}
+
+/* Disable Ring UI Panel hover effects and ensure proper sizing */
+.project-card .ring-panel,
+.project-card [class*="ring-panel"],
+.projects-grid .ring-panel {
+  background: transparent !important;
+  box-shadow: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.project-card .ring-panel:hover,
+.project-card [class*="ring-panel"]:hover,
+.projects-grid .ring-panel:hover {
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
 }
 
 /* Simplified icon colors for list layout */
@@ -163,7 +213,10 @@
   flex-direction: row;
   align-items: center;
   width: 100%;
+  max-width: 100%;
   gap: calc(var(--ring-unit) * 2);
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .project-header {
@@ -172,6 +225,9 @@
   align-items: center;
   gap: calc(var(--ring-unit) * 2);
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .project-icon {
@@ -192,155 +248,254 @@
   cursor: default;
 }
 
-/* Pink text icons with borders - every 7th starting from 1st */
-.project-card:nth-child(7n+1) {
+/* Pink text icons with borders - every 11th starting from 1st */
+.project-card:nth-child(11n+1) {
   --project-color: #ec4899;
   --project-color-dark: #be185d;
+  --project-color-light: #fce7f3;
 }
-.project-card:nth-child(7n+1) .project-icon {
+.project-card:nth-child(11n+1) .project-icon {
   color: var(--project-color);
   border-color: var(--project-color);
 }
 
-.project-card:nth-child(7n+1):hover .project-icon,
-.project-card:nth-child(7n+1) .project-icon:hover {
+.project-card:nth-child(11n+1):hover .project-icon,
+.project-card:nth-child(11n+1) .project-icon:hover {
   box-shadow: 0 4px 20px rgba(236, 72, 153, 0.4), 0 2px 8px rgba(236, 72, 153, 0.3);
   transform: translateY(-2px);
 }
 
-.project-card:nth-child(7n+1) .project-title:hover {
+.project-card:nth-child(11n+1) .project-title:hover {
   color: var(--project-color);
   text-decoration: underline;
   text-decoration-color: var(--project-color);
 }
 
-/* Purple text icons with borders - every 7th starting from 2nd */
-.project-card:nth-child(7n+2) {
+/* Purple text icons with borders - every 11th starting from 2nd */
+.project-card:nth-child(11n+2) {
   --project-color: #8b5cf6;
   --project-color-dark: #6d28d9;
+  --project-color-light: #f3e8ff;
 }
-.project-card:nth-child(7n+2) .project-icon {
+.project-card:nth-child(11n+2) .project-icon {
   color: var(--project-color);
   border-color: var(--project-color);
 }
 
-.project-card:nth-child(7n+2):hover .project-icon,
-.project-card:nth-child(7n+2) .project-icon:hover {
+.project-card:nth-child(11n+2):hover .project-icon,
+.project-card:nth-child(11n+2) .project-icon:hover {
   box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4), 0 2px 8px rgba(139, 92, 246, 0.3);
   transform: translateY(-2px);
 }
 
-.project-card:nth-child(7n+2) .project-title:hover {
+.project-card:nth-child(11n+2) .project-title:hover {
   color: var(--project-color);
   text-decoration: underline;
   text-decoration-color: var(--project-color);
 }
 
-/* Red text icons with borders - every 7th starting from 3rd */
-.project-card:nth-child(7n+3) {
+/* Red text icons with borders - every 11th starting from 3rd */
+.project-card:nth-child(11n+3) {
   --project-color: #ef4444;
   --project-color-dark: #dc2626;
+  --project-color-light: #fef2f2;
 }
-.project-card:nth-child(7n+3) .project-icon {
+.project-card:nth-child(11n+3) .project-icon {
   color: var(--project-color);
   border-color: var(--project-color);
 }
 
-.project-card:nth-child(7n+3):hover .project-icon,
-.project-card:nth-child(7n+3) .project-icon:hover {
+.project-card:nth-child(11n+3):hover .project-icon,
+.project-card:nth-child(11n+3) .project-icon:hover {
   box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4), 0 2px 8px rgba(239, 68, 68, 0.3);
   transform: translateY(-2px);
 }
 
-.project-card:nth-child(7n+3) .project-title:hover {
+.project-card:nth-child(11n+3) .project-title:hover {
   color: var(--project-color);
   text-decoration: underline;
   text-decoration-color: var(--project-color);
 }
 
-/* Orange text icons with borders - every 7th starting from 4th */
-.project-card:nth-child(7n+4) {
-  --project-color: #f59e0b;
-  --project-color-dark: #d97706;
+/* Orange text icons with borders - every 11th starting from 4th */
+.project-card:nth-child(11n+4) {
+  --project-color: #fb923c;
+  --project-color-dark: #f97316;
+  --project-color-light: #fff7ed;
 }
-.project-card:nth-child(7n+4) .project-icon {
+.project-card:nth-child(11n+4) .project-icon {
   color: var(--project-color);
   border-color: var(--project-color);
 }
 
-.project-card:nth-child(7n+4):hover .project-icon,
-.project-card:nth-child(7n+4) .project-icon:hover {
-  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4), 0 2px 8px rgba(245, 158, 11, 0.3);
+.project-card:nth-child(11n+4):hover .project-icon,
+.project-card:nth-child(11n+4) .project-icon:hover {
+  box-shadow: 0 4px 20px rgba(251, 146, 60, 0.4), 0 2px 8px rgba(251, 146, 60, 0.3);
   transform: translateY(-2px);
 }
 
-.project-card:nth-child(7n+4) .project-title:hover {
+.project-card:nth-child(11n+4) .project-title:hover {
   color: var(--project-color);
   text-decoration: underline;
   text-decoration-color: var(--project-color);
 }
 
-/* Indigo text icons with borders - every 7th starting from 5th */
-.project-card:nth-child(7n+5) {
+/* Indigo text icons with borders - every 11th starting from 5th */
+.project-card:nth-child(11n+5) {
   --project-color: #6366f1;
   --project-color-dark: #4f46e5;
+  --project-color-light: #eef2ff;
 }
-.project-card:nth-child(7n+5) .project-icon {
+.project-card:nth-child(11n+5) .project-icon {
   color: var(--project-color);
   border-color: var(--project-color);
 }
 
-.project-card:nth-child(7n+5):hover .project-icon,
-.project-card:nth-child(7n+5) .project-icon:hover {
+.project-card:nth-child(11n+5):hover .project-icon,
+.project-card:nth-child(11n+5) .project-icon:hover {
   box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4), 0 2px 8px rgba(99, 102, 241, 0.3);
   transform: translateY(-2px);
 }
 
-.project-card:nth-child(7n+5) .project-title:hover {
+.project-card:nth-child(11n+5) .project-title:hover {
   color: var(--project-color);
   text-decoration: underline;
   text-decoration-color: var(--project-color);
 }
 
-/* Rose text icons with borders - every 7th starting from 6th */
-.project-card:nth-child(7n+6) {
+/* Rose text icons with borders - every 11th starting from 6th */
+.project-card:nth-child(11n+6) {
   --project-color: #f43f5e;
   --project-color-dark: #e11d48;
+  --project-color-light: #fff1f2;
 }
-.project-card:nth-child(7n+6) .project-icon {
+.project-card:nth-child(11n+6) .project-icon {
   color: var(--project-color);
   border-color: var(--project-color);
 }
 
-.project-card:nth-child(7n+6):hover .project-icon,
-.project-card:nth-child(7n+6) .project-icon:hover {
+.project-card:nth-child(11n+6):hover .project-icon,
+.project-card:nth-child(11n+6) .project-icon:hover {
   box-shadow: 0 4px 20px rgba(244, 63, 94, 0.4), 0 2px 8px rgba(244, 63, 94, 0.3);
   transform: translateY(-2px);
 }
 
-.project-card:nth-child(7n+6) .project-title:hover {
+.project-card:nth-child(11n+6) .project-title:hover {
   color: var(--project-color);
   text-decoration: underline;
   text-decoration-color: var(--project-color);
 }
 
-/* Violet text icons with borders - every 7th starting from 7th */
-.project-card:nth-child(7n+7) {
+/* Violet text icons with borders - every 11th starting from 7th */
+.project-card:nth-child(11n+7) {
   --project-color: #a855f7;
   --project-color-dark: #7c3aed;
+  --project-color-light: #faf5ff;
 }
-.project-card:nth-child(7n+7) .project-icon {
+.project-card:nth-child(11n+7) .project-icon {
   color: var(--project-color);
   border-color: var(--project-color);
 }
 
-.project-card:nth-child(7n+7):hover .project-icon,
-.project-card:nth-child(7n+7) .project-icon:hover {
+.project-card:nth-child(11n+7):hover .project-icon,
+.project-card:nth-child(11n+7) .project-icon:hover {
   box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4), 0 2px 8px rgba(168, 85, 247, 0.3);
   transform: translateY(-2px);
 }
 
-.project-card:nth-child(7n+7) .project-title:hover {
+.project-card:nth-child(11n+7) .project-title:hover {
+  color: var(--project-color);
+  text-decoration: underline;
+  text-decoration-color: var(--project-color);
+}
+
+/* Aquamarine text icons with borders - every 11th starting from 8th */
+.project-card:nth-child(11n+8) {
+  --project-color: #14b8a6;
+  --project-color-dark: #0d9488;
+  --project-color-light: #f0fdfa;
+}
+.project-card:nth-child(11n+8) .project-icon {
+  color: var(--project-color);
+  border-color: var(--project-color);
+}
+
+.project-card:nth-child(11n+8):hover .project-icon,
+.project-card:nth-child(11n+8) .project-icon:hover {
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4), 0 2px 8px rgba(6, 182, 212, 0.3);
+  transform: translateY(-2px);
+}
+
+.project-card:nth-child(11n+8) .project-title:hover {
+  color: var(--project-color);
+  text-decoration: underline;
+  text-decoration-color: var(--project-color);
+}
+
+/* Vibrant Orange text icons with borders - every 11th starting from 9th */
+.project-card:nth-child(11n+9) {
+  --project-color: #ff8a65;
+  --project-color-dark: #ff7043;
+  --project-color-light: #fff3e0;
+}
+.project-card:nth-child(11n+9) .project-icon {
+  color: var(--project-color);
+  border-color: var(--project-color);
+}
+
+.project-card:nth-child(11n+9):hover .project-icon,
+.project-card:nth-child(11n+9) .project-icon:hover {
+  box-shadow: 0 4px 20px rgba(255, 138, 101, 0.4), 0 2px 8px rgba(255, 138, 101, 0.3);
+  transform: translateY(-2px);
+}
+
+.project-card:nth-child(11n+9) .project-title:hover {
+  color: var(--project-color);
+  text-decoration: underline;
+  text-decoration-color: var(--project-color);
+}
+
+/* Celeste/Sky Blue text icons with borders - every 11th starting from 10th */
+.project-card:nth-child(11n+10) {
+  --project-color: #0ea5e9;
+  --project-color-dark: #0284c7;
+  --project-color-light: #f0f9ff;
+}
+.project-card:nth-child(11n+10) .project-icon {
+  color: var(--project-color);
+  border-color: var(--project-color);
+}
+
+.project-card:nth-child(11n+10):hover .project-icon,
+.project-card:nth-child(11n+10) .project-icon:hover {
+  box-shadow: 0 4px 20px rgba(14, 165, 233, 0.4), 0 2px 8px rgba(14, 165, 233, 0.3);
+  transform: translateY(-2px);
+}
+
+.project-card:nth-child(11n+10) .project-title:hover {
+  color: var(--project-color);
+  text-decoration: underline;
+  text-decoration-color: var(--project-color);
+}
+
+/* Bright Pink text icons with borders - every 11th starting from 11th */
+.project-card:nth-child(11n+11) {
+  --project-color: #ff0080;
+  --project-color-dark: #db2777;
+  --project-color-light: #fdf2f8;
+}
+.project-card:nth-child(11n+11) .project-icon {
+  color: var(--project-color);
+  border-color: var(--project-color);
+}
+
+.project-card:nth-child(11n+11):hover .project-icon,
+.project-card:nth-child(11n+11) .project-icon:hover {
+  box-shadow: 0 4px 20px rgba(255, 0, 128, 0.4), 0 2px 8px rgba(255, 0, 128, 0.3);
+  transform: translateY(-2px);
+}
+
+.project-card:nth-child(11n+11) .project-title:hover {
   color: var(--project-color);
   text-decoration: underline;
   text-decoration-color: var(--project-color);
@@ -377,6 +532,9 @@
   align-items: flex-end;
   gap: calc(var(--ring-unit) * 0.5);
   min-width: 180px;
+  max-width: 200px;
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .sync-label {
@@ -393,69 +551,166 @@
   display: block;
   font-size: 10px;
   font-weight: 400;
-  color: var(--ring-disabled-color);
+  color: var(--project-color, var(--ring-disabled-color));
+  opacity: 0.7;
   margin-top: 2px;
   font-style: italic;
 }
 
-/* Toggle styling to match project colors */
-.sync-control .ring-toggle {
-  --ring-toggle-bg-color: var(--project-color);
-  --ring-toggle-border-color: var(--project-color);
+/* Specific color applications for sync controls per project color */
+.project-card:nth-child(11n+1) .sync-label { color: #be185d; }
+.project-card:nth-child(11n+1) .sync-label::after { color: #ec4899; opacity: 0.7; }
+
+.project-card:nth-child(11n+2) .sync-label { color: #6d28d9; }
+.project-card:nth-child(11n+2) .sync-label::after { color: #8b5cf6; opacity: 0.7; }
+
+.project-card:nth-child(11n+3) .sync-label { color: #dc2626; }
+.project-card:nth-child(11n+3) .sync-label::after { color: #ef4444; opacity: 0.7; }
+
+.project-card:nth-child(11n+4) .sync-label { color: #f97316; }
+.project-card:nth-child(11n+4) .sync-label::after { color: #fb923c; opacity: 0.7; }
+
+.project-card:nth-child(11n+5) .sync-label { color: #4f46e5; }
+.project-card:nth-child(11n+5) .sync-label::after { color: #6366f1; opacity: 0.7; }
+
+.project-card:nth-child(11n+6) .sync-label { color: #e11d48; }
+.project-card:nth-child(11n+6) .sync-label::after { color: #f43f5e; opacity: 0.7; }
+
+.project-card:nth-child(11n+7) .sync-label { color: #7c3aed; }
+.project-card:nth-child(11n+7) .sync-label::after { color: #a855f7; opacity: 0.7; }
+
+.project-card:nth-child(11n+8) .sync-label { color: #0d9488; }
+.project-card:nth-child(11n+8) .sync-label::after { color: #14b8a6; opacity: 0.7; }
+
+.project-card:nth-child(11n+9) .sync-label { color: #ff7043; }
+.project-card:nth-child(11n+9) .sync-label::after { color: #ff8a65; opacity: 0.7; }
+
+.project-card:nth-child(11n+10) .sync-label { color: #0284c7; }
+.project-card:nth-child(11n+10) .sync-label::after { color: #0ea5e9; opacity: 0.7; }
+
+.project-card:nth-child(11n+11) .sync-label { color: #db2777; }
+.project-card:nth-child(11n+11) .sync-label::after { color: #ff0080; opacity: 0.7; }
+
+/* Ring UI Toggle Customization - Rotating Through All Project Colors */
+
+/* 1. Pink - every 11th starting from 1st */
+.project-card:nth-child(11n+1) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+1) .sync-control [class*="input"]:checked + [class*="switch"],
+.project-card:nth-child(11n+1) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  --ring-toggle-background-color: #ec4899 !important;
+}
+.project-card:nth-child(11n+1) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+1) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  border-color: #be185d !important;
 }
 
-.sync-control .ring-toggle:hover {
-  --ring-toggle-bg-color: var(--project-color-dark);
-  --ring-toggle-border-color: var(--project-color-dark);
+/* 2. Purple - every 11th starting from 2nd */
+.project-card:nth-child(11n+2) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+2) .sync-control [class*="input"]:checked + [class*="switch"],
+.project-card:nth-child(11n+2) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  --ring-toggle-background-color: #8b5cf6 !important;
+}
+.project-card:nth-child(11n+2) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+2) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  border-color: #6d28d9 !important;
 }
 
-/* Ring UI Toggle component specific styling */
-.sync-control [data-test~="ring-toggle"] {
-  --ring-main-color: var(--project-color);
-  --ring-hover-color: var(--project-color-dark);
+/* 3. Red - every 11th starting from 3rd */
+.project-card:nth-child(11n+3) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+3) .sync-control [class*="input"]:checked + [class*="switch"],
+.project-card:nth-child(11n+3) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  --ring-toggle-background-color: #ef4444 !important;
+}
+.project-card:nth-child(11n+3) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+3) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  border-color: #dc2626 !important;
 }
 
-.sync-control [data-test~="ring-toggle"]:hover {
-  --ring-main-color: var(--project-color-dark);
+/* 4. Orange - every 11th starting from 4th */
+.project-card:nth-child(11n+4) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+4) .sync-control [class*="input"]:checked + [class*="switch"],
+.project-card:nth-child(11n+4) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  --ring-toggle-background-color: #fb923c !important;
+}
+.project-card:nth-child(11n+4) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+4) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  border-color: #f97316 !important;
 }
 
-/* More specific toggle styling for enabled state */
-.sync-control .ring-toggle[data-checked="true"] {
-  background-color: var(--project-color) !important;
-  border-color: var(--project-color) !important;
+/* 5. Indigo - every 11th starting from 5th */
+.project-card:nth-child(11n+5) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+5) .sync-control [class*="input"]:checked + [class*="switch"],
+.project-card:nth-child(11n+5) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  --ring-toggle-background-color: #6366f1 !important;
+}
+.project-card:nth-child(11n+5) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+5) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  border-color: #4f46e5 !important;
 }
 
-.sync-control .ring-toggle[data-checked="true"]:hover {
-  background-color: var(--project-color-dark) !important;
-  border-color: var(--project-color-dark) !important;
+/* 6. Rose - every 11th starting from 6th */
+.project-card:nth-child(11n+6) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+6) .sync-control [class*="input"]:checked + [class*="switch"],
+.project-card:nth-child(11n+6) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  --ring-toggle-background-color: #f43f5e !important;
+}
+.project-card:nth-child(11n+6) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+6) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  border-color: #e11d48 !important;
 }
 
-/* Additional Ring UI Toggle selectors */
-.sync-control .ring-toggle__container {
-  --ring-main-color: var(--project-color);
+/* 7. Violet - every 11th starting from 7th */
+.project-card:nth-child(11n+7) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+7) .sync-control [class*="input"]:checked + [class*="switch"],
+.project-card:nth-child(11n+7) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  --ring-toggle-background-color: #a855f7 !important;
+}
+.project-card:nth-child(11n+7) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+7) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  border-color: #7c3aed !important;
 }
 
-.sync-control .ring-toggle__container:hover {
-  --ring-main-color: var(--project-color-dark);
+/* 8. Aquamarine/Teal - every 11th starting from 8th */
+.project-card:nth-child(11n+8) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+8) .sync-control [class*="input"]:checked + [class*="switch"],
+.project-card:nth-child(11n+8) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  --ring-toggle-background-color: #14b8a6 !important;
+}
+.project-card:nth-child(11n+8) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+8) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  border-color: #0d9488 !important;
 }
 
-/* Target the actual toggle button */
-.sync-control button[data-test~="ring-toggle"] {
-  --ring-main-color: var(--project-color);
+/* 9. Vibrant Orange - every 11th starting from 9th */
+.project-card:nth-child(11n+9) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+9) .sync-control [class*="input"]:checked + [class*="switch"],
+.project-card:nth-child(11n+9) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  --ring-toggle-background-color: #ff8a65 !important;
+}
+.project-card:nth-child(11n+9) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+9) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  border-color: #ff7043 !important;
 }
 
-.sync-control button[data-test~="ring-toggle"]:hover {
-  --ring-main-color: var(--project-color-dark);
+/* 10. Sky Blue - every 11th starting from 10th */
+.project-card:nth-child(11n+10) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+10) .sync-control [class*="input"]:checked + [class*="switch"],
+.project-card:nth-child(11n+10) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  --ring-toggle-background-color: #0ea5e9 !important;
+}
+.project-card:nth-child(11n+10) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+10) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  border-color: #0284c7 !important;
 }
 
-/* Alternative class-based targeting */
-.project-card .ring-toggle_checked {
-  background-color: var(--project-color) !important;
-  border-color: var(--project-color) !important;
+/* 11. Bright Pink - every 11th starting from 11th */
+.project-card:nth-child(11n+11) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+11) .sync-control [class*="input"]:checked + [class*="switch"],
+.project-card:nth-child(11n+11) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  --ring-toggle-background-color: #ff0080 !important;
 }
-
-.project-card .ring-toggle_checked:hover {
-  background-color: var(--project-color-dark) !important;
-  border-color: var(--project-color-dark) !important;
+.project-card:nth-child(11n+11) .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card:nth-child(11n+11) .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  border-color: #db2777 !important;
 }
 
