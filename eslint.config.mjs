@@ -49,7 +49,8 @@ export default tseslint.config(
           allowConstantExport: true,
         },
       ],
-      "react/jsx-no-literals": "off"
+      "react/jsx-no-literals": "off",
+      "react/prop-types": "off" // Disabled for TypeScript projects using interfaces
     }
   },
   {
