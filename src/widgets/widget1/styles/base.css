@@ -1,0 +1,15 @@
+/* Base styles - Global resets and variables */
+
+/* Ensure proper box-sizing for all elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Override Ring UI CSS variables globally for toggle colors */
+:root {
+  --ring-main-color: #ec4899;
+  --ring-main-hover-color: #ec4899;
+  --ring-border-hover-color: #ec4899;
+}

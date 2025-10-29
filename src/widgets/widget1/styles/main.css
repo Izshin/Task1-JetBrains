@@ -1,2 +1,21 @@
-/* Import the complete original working CSS */
-@import '../app.css';
+/* Modular CSS imports - organized for maintainability */
+
+/* Base styles and variables */
+@import './base.css';
+
+/* Color theme system */
+@import './color-themes.css';
+
+/* Layout components */
+@import './layout.css';
+
+/* Project card components */
+@import './project-card.css';
+@import './project-colors.css';
+
+/* Interactive components */
+@import './sync-control.css';
+@import './toggle-styles.css';
+
+/* Utility components */
+@import './debug.css';

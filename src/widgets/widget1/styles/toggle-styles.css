@@ -1,0 +1,20 @@
+/* Ring UI Toggle customization for each color theme */
+
+/* Base toggle styles using CSS custom properties */
+.project-card .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card .sync-control [class*="input"]:checked + [class*="switch"],
+.project-card .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  --ring-toggle-background-color: var(--project-color) !important;
+}
+
+.project-card .sync-control [class*="toggle"]:hover [class*="switch"],
+.project-card .sync-control [class*="input"]:checked:hover + [class*="switch"] {
+  border-color: var(--project-color-dark) !important;
+}
+
+/* Focus states using project colors */
+.project-card .sync-control [class*="input"]:focus + [class*="switch"] {
+  box-shadow:
+    inset 0 0 0 1px var(--project-color-dark),
+    0 0 0 1px var(--project-color-dark) !important;
+}

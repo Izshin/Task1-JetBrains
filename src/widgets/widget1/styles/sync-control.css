@@ -1,0 +1,32 @@
+/* Sync control styles */
+
+.sync-control {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: calc(var(--ring-unit) * 0.5);
+  min-width: 180px;
+  max-width: 200px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.sync-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--project-color-dark, var(--ring-secondary-color));
+  text-align: right;
+  line-height: 1.2;
+  position: relative;
+}
+
+.sync-label::after {
+  content: "Prevents concurrent editing conflicts";
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--project-color, var(--ring-disabled-color));
+  opacity: 0.7;
+  margin-top: 2px;
+  font-style: italic;
+}

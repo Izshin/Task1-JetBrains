@@ -1,0 +1,110 @@
+/* Project card color variations using nth-child selectors */
+
+/* Mixin-like approach using CSS custom properties for each theme */
+
+/* 1. Pink - every 11th starting from 1st */
+.project-card:nth-child(11n+1) {
+  --project-color: var(--theme-pink);
+  --project-color-dark: var(--theme-pink-dark);
+  --project-color-light: var(--theme-pink-light);
+}
+
+/* 2. Purple - every 11th starting from 2nd */
+.project-card:nth-child(11n+2) {
+  --project-color: var(--theme-purple);
+  --project-color-dark: var(--theme-purple-dark);
+  --project-color-light: var(--theme-purple-light);
+}
+
+/* 3. Red - every 11th starting from 3rd */
+.project-card:nth-child(11n+3) {
+  --project-color: var(--theme-red);
+  --project-color-dark: var(--theme-red-dark);
+  --project-color-light: var(--theme-red-light);
+}
+
+/* 4. Orange - every 11th starting from 4th */
+.project-card:nth-child(11n+4) {
+  --project-color: var(--theme-orange);
+  --project-color-dark: var(--theme-orange-dark);
+  --project-color-light: var(--theme-orange-light);
+}
+
+/* 5. Indigo - every 11th starting from 5th */
+.project-card:nth-child(11n+5) {
+  --project-color: var(--theme-indigo);
+  --project-color-dark: var(--theme-indigo-dark);
+  --project-color-light: var(--theme-indigo-light);
+}
+
+/* 6. Rose - every 11th starting from 6th */
+.project-card:nth-child(11n+6) {
+  --project-color: var(--theme-rose);
+  --project-color-dark: var(--theme-rose-dark);
+  --project-color-light: var(--theme-rose-light);
+}
+
+/* 7. Violet - every 11th starting from 7th */
+.project-card:nth-child(11n+7) {
+  --project-color: var(--theme-violet);
+  --project-color-dark: var(--theme-violet-dark);
+  --project-color-light: var(--theme-violet-light);
+}
+
+/* 8. Teal - every 11th starting from 8th */
+.project-card:nth-child(11n+8) {
+  --project-color: var(--theme-teal);
+  --project-color-dark: var(--theme-teal-dark);
+  --project-color-light: var(--theme-teal-light);
+}
+
+/* 9. Vibrant Orange - every 11th starting from 9th */
+.project-card:nth-child(11n+9) {
+  --project-color: var(--theme-vibrant-orange);
+  --project-color-dark: var(--theme-vibrant-orange-dark);
+  --project-color-light: var(--theme-vibrant-orange-light);
+}
+
+/* 10. Sky Blue - every 11th starting from 10th */
+.project-card:nth-child(11n+10) {
+  --project-color: var(--theme-sky);
+  --project-color-dark: var(--theme-sky-dark);
+  --project-color-light: var(--theme-sky-light);
+}
+
+/* 11. Bright Pink - every 11th starting from 11th */
+.project-card:nth-child(11n+11) {
+  --project-color: var(--theme-bright-pink);
+  --project-color-dark: var(--theme-bright-pink-dark);
+  --project-color-light: var(--theme-bright-pink-light);
+}
+
+/* Apply colors to elements using the CSS custom properties */
+.project-card .project-icon {
+  color: var(--project-color);
+  border-color: var(--project-color);
+}
+
+.project-card:hover .project-icon,
+.project-card .project-icon:hover {
+  box-shadow: 
+    0 4px 20px color-mix(in srgb, var(--project-color) 40%, transparent),
+    0 2px 8px color-mix(in srgb, var(--project-color) 30%, transparent);
+  transform: translateY(-2px);
+}
+
+.project-card .project-title:hover {
+  color: var(--project-color);
+  text-decoration: underline;
+  text-decoration-color: var(--project-color);
+}
+
+/* Sync label colors */
+.project-card .sync-label {
+  color: var(--project-color-dark);
+}
+
+.project-card .sync-label::after {
+  color: var(--project-color);
+  opacity: 0.7;
+}

@@ -1,0 +1,59 @@
+/* Color theme system for project cards */
+
+/* Define all color themes as CSS custom properties */
+:root {
+  /* Pink theme */
+  --theme-pink: #ec4899;
+  --theme-pink-dark: #be185d;
+  --theme-pink-light: #fce7f3;
+  
+  /* Purple theme */
+  --theme-purple: #8b5cf6;
+  --theme-purple-dark: #6d28d9;
+  --theme-purple-light: #f3e8ff;
+  
+  /* Red theme */
+  --theme-red: #ef4444;
+  --theme-red-dark: #dc2626;
+  --theme-red-light: #fef2f2;
+  
+  /* Orange theme */
+  --theme-orange: #fb923c;
+  --theme-orange-dark: #f97316;
+  --theme-orange-light: #fff7ed;
+  
+  /* Indigo theme */
+  --theme-indigo: #6366f1;
+  --theme-indigo-dark: #4f46e5;
+  --theme-indigo-light: #eef2ff;
+  
+  /* Rose theme */
+  --theme-rose: #f43f5e;
+  --theme-rose-dark: #e11d48;
+  --theme-rose-light: #fff1f2;
+  
+  /* Violet theme */
+  --theme-violet: #a855f7;
+  --theme-violet-dark: #7c3aed;
+  --theme-violet-light: #faf5ff;
+  
+  /* Teal theme */
+  --theme-teal: #14b8a6;
+  --theme-teal-dark: #0d9488;
+  --theme-teal-light: #f0fdfa;
+  
+  /* Vibrant Orange theme */
+  --theme-vibrant-orange: #ff8a65;
+  --theme-vibrant-orange-dark: #ff7043;
+  --theme-vibrant-orange-light: #fff3e0;
+  
+  /* Sky Blue theme */
+  --theme-sky: #0ea5e9;
+  --theme-sky-dark: #0284c7;
+  --theme-sky-light: #f0f9ff;
+  
+  /* Bright Pink theme */
+  --theme-bright-pink: #ff0080;
+  --theme-bright-pink-dark: #db2777;
+  --theme-bright-pink-light: #fdf2f8;
+}

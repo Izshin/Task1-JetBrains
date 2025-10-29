@@ -1,0 +1,47 @@
+/* Layout styles - Widget container and header */
+
+.widget {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--ring-unit) * 2);
+  padding: calc(var(--ring-unit) * 2);
+  width: 100%;
+  max-width: 90%;
+  background: #ffffff;
+  align-items: flex-start;
+  overflow-x: visible;
+  box-sizing: border-box;
+}
+
+.widget-header {
+  text-align: center;
+  padding: calc(var(--ring-unit) * 3) calc(var(--ring-unit) * 2);
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  border-radius: 20px;
+  margin-bottom: calc(var(--ring-unit) * 2);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+}
+
+.widget-header h1 {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: -0.5px;
+}
+
+.projects-list {
+  margin-bottom: calc(var(--ring-unit) * 2);
+}
+
+.no-projects {
+  text-align: center;
+  padding: calc(var(--ring-unit) * 6);
+  color: #9ca3af;
+  font-style: italic;
+  font-size: 16px;
+  background: rgba(156, 163, 175, 0.1);
+  border-radius: 16px;
+  border: 2px dashed #d1d5db;
+}
