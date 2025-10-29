@@ -193,9 +193,13 @@
 }
 
 /* Pink text icons with borders - every 7th starting from 1st */
+.project-card:nth-child(7n+1) {
+  --project-color: #ec4899;
+  --project-color-dark: #be185d;
+}
 .project-card:nth-child(7n+1) .project-icon {
-  color: #ec4899;
-  border-color: #ec4899;
+  color: var(--project-color);
+  border-color: var(--project-color);
 }
 
 .project-card:nth-child(7n+1):hover .project-icon,
@@ -205,15 +209,19 @@
 }
 
 .project-card:nth-child(7n+1) .project-title:hover {
-  color: #ec4899;
+  color: var(--project-color);
   text-decoration: underline;
-  text-decoration-color: #ec4899;
+  text-decoration-color: var(--project-color);
 }
 
 /* Purple text icons with borders - every 7th starting from 2nd */
+.project-card:nth-child(7n+2) {
+  --project-color: #8b5cf6;
+  --project-color-dark: #6d28d9;
+}
 .project-card:nth-child(7n+2) .project-icon {
-  color: #8b5cf6;
-  border-color: #8b5cf6;
+  color: var(--project-color);
+  border-color: var(--project-color);
 }
 
 .project-card:nth-child(7n+2):hover .project-icon,
@@ -223,15 +231,19 @@
 }
 
 .project-card:nth-child(7n+2) .project-title:hover {
-  color: #8b5cf6;
+  color: var(--project-color);
   text-decoration: underline;
-  text-decoration-color: #8b5cf6;
+  text-decoration-color: var(--project-color);
 }
 
 /* Red text icons with borders - every 7th starting from 3rd */
+.project-card:nth-child(7n+3) {
+  --project-color: #ef4444;
+  --project-color-dark: #dc2626;
+}
 .project-card:nth-child(7n+3) .project-icon {
-  color: #ef4444;
-  border-color: #ef4444;
+  color: var(--project-color);
+  border-color: var(--project-color);
 }
 
 .project-card:nth-child(7n+3):hover .project-icon,
@@ -241,15 +253,19 @@
 }
 
 .project-card:nth-child(7n+3) .project-title:hover {
-  color: #ef4444;
+  color: var(--project-color);
   text-decoration: underline;
-  text-decoration-color: #ef4444;
+  text-decoration-color: var(--project-color);
 }
 
 /* Orange text icons with borders - every 7th starting from 4th */
+.project-card:nth-child(7n+4) {
+  --project-color: #f59e0b;
+  --project-color-dark: #d97706;
+}
 .project-card:nth-child(7n+4) .project-icon {
-  color: #f59e0b;
-  border-color: #f59e0b;
+  color: var(--project-color);
+  border-color: var(--project-color);
 }
 
 .project-card:nth-child(7n+4):hover .project-icon,
@@ -259,15 +275,19 @@
 }
 
 .project-card:nth-child(7n+4) .project-title:hover {
-  color: #f59e0b;
+  color: var(--project-color);
   text-decoration: underline;
-  text-decoration-color: #f59e0b;
+  text-decoration-color: var(--project-color);
 }
 
 /* Indigo text icons with borders - every 7th starting from 5th */
+.project-card:nth-child(7n+5) {
+  --project-color: #6366f1;
+  --project-color-dark: #4f46e5;
+}
 .project-card:nth-child(7n+5) .project-icon {
-  color: #6366f1;
-  border-color: #6366f1;
+  color: var(--project-color);
+  border-color: var(--project-color);
 }
 
 .project-card:nth-child(7n+5):hover .project-icon,
@@ -277,15 +297,19 @@
 }
 
 .project-card:nth-child(7n+5) .project-title:hover {
-  color: #6366f1;
+  color: var(--project-color);
   text-decoration: underline;
-  text-decoration-color: #6366f1;
+  text-decoration-color: var(--project-color);
 }
 
 /* Rose text icons with borders - every 7th starting from 6th */
+.project-card:nth-child(7n+6) {
+  --project-color: #f43f5e;
+  --project-color-dark: #e11d48;
+}
 .project-card:nth-child(7n+6) .project-icon {
-  color: #f43f5e;
-  border-color: #f43f5e;
+  color: var(--project-color);
+  border-color: var(--project-color);
 }
 
 .project-card:nth-child(7n+6):hover .project-icon,
@@ -295,15 +319,19 @@
 }
 
 .project-card:nth-child(7n+6) .project-title:hover {
-  color: #f43f5e;
+  color: var(--project-color);
   text-decoration: underline;
-  text-decoration-color: #f43f5e;
+  text-decoration-color: var(--project-color);
 }
 
 /* Violet text icons with borders - every 7th starting from 7th */
+.project-card:nth-child(7n+7) {
+  --project-color: #a855f7;
+  --project-color-dark: #7c3aed;
+}
 .project-card:nth-child(7n+7) .project-icon {
-  color: #a855f7;
-  border-color: #a855f7;
+  color: var(--project-color);
+  border-color: var(--project-color);
 }
 
 .project-card:nth-child(7n+7):hover .project-icon,
@@ -313,9 +341,9 @@
 }
 
 .project-card:nth-child(7n+7) .project-title:hover {
-  color: #a855f7;
+  color: var(--project-color);
   text-decoration: underline;
-  text-decoration-color: #a855f7;
+  text-decoration-color: var(--project-color);
 }
 
 .project-icon::before {
@@ -354,7 +382,7 @@
 .sync-label {
   font-size: 12px;
   font-weight: 600;
-  color: var(--ring-secondary-color);
+  color: var(--project-color-dark, var(--ring-secondary-color));
   text-align: right;
   line-height: 1.2;
   position: relative;
@@ -368,5 +396,66 @@
   color: var(--ring-disabled-color);
   margin-top: 2px;
   font-style: italic;
+}
+
+/* Toggle styling to match project colors */
+.sync-control .ring-toggle {
+  --ring-toggle-bg-color: var(--project-color);
+  --ring-toggle-border-color: var(--project-color);
+}
+
+.sync-control .ring-toggle:hover {
+  --ring-toggle-bg-color: var(--project-color-dark);
+  --ring-toggle-border-color: var(--project-color-dark);
+}
+
+/* Ring UI Toggle component specific styling */
+.sync-control [data-test~="ring-toggle"] {
+  --ring-main-color: var(--project-color);
+  --ring-hover-color: var(--project-color-dark);
+}
+
+.sync-control [data-test~="ring-toggle"]:hover {
+  --ring-main-color: var(--project-color-dark);
+}
+
+/* More specific toggle styling for enabled state */
+.sync-control .ring-toggle[data-checked="true"] {
+  background-color: var(--project-color) !important;
+  border-color: var(--project-color) !important;
+}
+
+.sync-control .ring-toggle[data-checked="true"]:hover {
+  background-color: var(--project-color-dark) !important;
+  border-color: var(--project-color-dark) !important;
+}
+
+/* Additional Ring UI Toggle selectors */
+.sync-control .ring-toggle__container {
+  --ring-main-color: var(--project-color);
+}
+
+.sync-control .ring-toggle__container:hover {
+  --ring-main-color: var(--project-color-dark);
+}
+
+/* Target the actual toggle button */
+.sync-control button[data-test~="ring-toggle"] {
+  --ring-main-color: var(--project-color);
+}
+
+.sync-control button[data-test~="ring-toggle"]:hover {
+  --ring-main-color: var(--project-color-dark);
+}
+
+/* Alternative class-based targeting */
+.project-card .ring-toggle_checked {
+  background-color: var(--project-color) !important;
+  border-color: var(--project-color) !important;
+}
+
+.project-card .ring-toggle_checked:hover {
+  background-color: var(--project-color-dark) !important;
+  border-color: var(--project-color-dark) !important;
 }
 
